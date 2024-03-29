@@ -2,33 +2,25 @@ from flask import Flask, jsonify
 import os
 from dotenv import load_dotenv
 import psycopg2
+import urllib.parse as urlparse
 
 load_dotenv()
 
 app = Flask(__name__)
 
-# Setup database configuration using environment variables
-# db_config = {
-#     "dbname": os.getenv("DB_NAME"),
-#     "user": os.getenv("DB_USER"),
-#     "password": os.getenv("DB_PASSWORD"),
-#     "host": os.getenv("DB_HOST")
-# }
+# Modify here to use DATABASE_URL
+#DATABASE_URL = os.getenv("DATABASE_URL")
 
-db_config = {
-    "dbname": os.getenv("df2677dbqqjia9"),
-    "user": os.getenv("udmogfdf79duqn"),
-    "password": os.getenv("pd455d073269e4c55b94408d5cf7c296d1b6839ba9a2912c9f8d9d35241a58f45"),
-    "host": os.getenv("cbbirn8v9855bl.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com")
-}
-
+DATABASE_URL = "postgres://udmogfdf79duqn:pd455d073269e4c55b94408d5cf7c296d1b6839ba9a2912c9f8d9"
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 @app.route('/test_db_connection')
 def test_db_connection():
     conn = None
     try:
-        # Connect to the PostgreSQL database
-        conn = psycopg2.connect(**db_config)
+        # Connect to the PostgreSQL database using DATABASE_URL
+        conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         cur = conn.cursor()
         
         # Perform a simple query to check the database connection
