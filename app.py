@@ -41,7 +41,7 @@ def predict_by_patient_id(patient_id):
     try:
         logger.debug('Start of prediction process')
         # Connect to the MySQL database
-        connection = mysql.connector.connect(**db_config)
+        connection = psycopg2.connect(**db_config)
         cursor = connection.cursor()
 
         # Fetch atrial fibrillation data from the atrial_fibrillation table based on patient_id
@@ -84,7 +84,7 @@ def predict_by_patient_id(patient_id):
             }
         })
     
-    except mysql.connector.Error as err:
+    except psycopg2.Error as err:
         logger.debug('Found an error')
         return jsonify({'error': f'Database error: {err}'}), 500
     
