@@ -4,6 +4,9 @@ from dotenv import load_dotenv
 import psycopg2
 import logging
 import json
+from joblib import load
+from flask_cors import CORS
+import mysql.connector
 
 
 
@@ -17,6 +20,10 @@ logger = logging.getLogger(__name__)
 
 
 app = Flask(__name__)
+
+CORS(app)
+
+model=load("RandomForest_best_model.pkl")
 
 # Modify here to use DATABASE_URL
 #DATABASE_URL = os.getenv("DATABASE_URL")
@@ -84,10 +91,10 @@ def predict_by_patient_id(patient_id):
 
         logger.debug('Features extracted for prediction: %s', features)
 
-        # Insert your prediction model logic here
-        # Example:
-        # prediction = model.predict([features])[0]
-        prediction = 1  # Placeholder for the actual model prediction
+       # prediction model logic here
+    
+        prediction = model.predict([features])[0]
+        
 
         prediction_label = {
             0: 'Atrial Fibrillation',
