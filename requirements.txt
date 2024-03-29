@@ -16,3 +16,5 @@ threadpoolctl==3.3.0
 Werkzeug==3.0.1
 psycopg2-binary==2.9.3
 python-dotenv==0.19.2
+mysqlclient==2.2.4
+mysql-connector-python==8.3.0
