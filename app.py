@@ -75,7 +75,11 @@ def predict_by_patient_id(patient_id):
 
         # Extract features from each channel's JSON data
         for channel_json in channels:
-            channel_data = json.loads(channel_json)
+            # New approach, check type first:
+            if isinstance(channel_json, str):
+                channel_data = json.loads(channel_json)  # Decode JSON string to dict
+            else:
+                channel_data = channel_json  # Use directly if already a dict
             features.extend([channel_data['SDNN'][0], channel_data['RMSSD'][0], channel_data['PNN50'][0], channel_data['Mean_RR'][0]])
 
         logger.debug('Features extracted for prediction: %s', features)
