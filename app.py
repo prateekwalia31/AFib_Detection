@@ -41,7 +41,7 @@ def predict_by_patient_id(patient_id):
     try:
         logger.debug('Start of prediction process')
         # Connect to the MySQL database
-        connection = psycopg2.connect(**db_config)
+        connection = psycopg2.connect(DATABASE_URL, sslmode='require')
         cursor = connection.cursor()
 
         # Fetch atrial fibrillation data from the atrial_fibrillation table based on patient_id
