@@ -2,7 +2,6 @@ from flask import Flask, jsonify
 import os
 from dotenv import load_dotenv
 import psycopg2
-import urllib.parse as urlparse
 
 load_dotenv()
 
