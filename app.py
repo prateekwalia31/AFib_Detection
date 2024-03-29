@@ -7,6 +7,13 @@ import logging
 
 load_dotenv()
 
+# Setup basic configuration for logging
+logging.basicConfig(level=logging.DEBUG)
+
+# Create a logger object
+logger = logging.getLogger(__name__)
+
+
 app = Flask(__name__)
 
 # Modify here to use DATABASE_URL
