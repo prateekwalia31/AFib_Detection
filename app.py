@@ -45,7 +45,7 @@ def predict_by_patient_id(patient_id):
         cursor = connection.cursor()
 
         # Fetch atrial fibrillation data from the atrial_fibrillation table based on patient_id
-        cursor.execute(f"SELECT Age, Gender, Channel_1, Channel_2, Channel_3, Channel_4, Channel_5, Channel_6, Channel_7, Channel_8, Channel_9, Channel_10, Channel_11, Channel_12 FROM patient_data WHERE patient_id = {patient_id}")
+        cursor.execute(f"SELECT Age, Gender, Channel_1, Channel_2, Channel_3, Channel_4, Channel_5, Channel_6, Channel_7, Channel_8, Channel_9, Channel_10, Channel_11, Channel_12 FROM atrial_fibrillation WHERE patient_id = {patient_id}")
         patient_data = cursor.fetchone()
         logging.debug('Cursor ',patient_data)
 
