@@ -10,7 +10,7 @@ app = Flask(__name__)
 # Modify here to use DATABASE_URL
 #DATABASE_URL = os.getenv("DATABASE_URL")
 
-DATABASE_URL = "postgres://udmogfdf79duqn:pd455d073269e4c55b94408d5cf7c296d1b6839ba9a2912c9f8d9"
+DATABASE_URL = "postgres://udmogfdf79duqn:pd455d073269e4c55b94408d5cf7c296d1b6839ba9a2912c9f8d9d35241a58f45@cbbirn8v9855bl.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/df2677dbqqjia9"
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
