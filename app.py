@@ -19,8 +19,7 @@ db_config = {
     "dbname": os.getenv("df2677dbqqjia9"),
     "user": os.getenv("udmogfdf79duqn"),
     "password": os.getenv("pd455d073269e4c55b94408d5cf7c296d1b6839ba9a2912c9f8d9d35241a58f45"),
-    "host": os.getenv("cbbirn8v9855bl.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com
-")
+    "host": os.getenv("cbbirn8v9855bl.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com")
 }
 
 
