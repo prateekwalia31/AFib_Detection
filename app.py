@@ -2,6 +2,8 @@ from flask import Flask, jsonify
 import os
 from dotenv import load_dotenv
 import psycopg2
+import logging
+
 
 load_dotenv()
 
