@@ -8,8 +8,6 @@ from joblib import load
 from flask_cors import CORS
 import mysql.connector
 
-const CORS = require('CORS')
-
 
 load_dotenv()
 
@@ -23,8 +21,6 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 CORS(app)
-
-app.use(CORS())
 
 model=load("RandomForest_best_model.pkl")
 
